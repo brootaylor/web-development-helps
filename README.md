@@ -2,16 +2,19 @@
 
 > This is a living document — updated as often as possible to keep the helps, references, and resources below current and relevant.
 
-A reference for building on the web platform itself — HTML, CSS, and JavaScript as browsers actually implement them, plus the media, performance, and accessibility practices that go with them — with no frameworks or abstractions layered on top. Each topic below is a short pointer to the best resource I've found on it, not a full explanation in itself.
+A reference for building on the web platform itself — HTML, CSS, JavaScript, and Web Components as browsers actually implement them, plus the media, performance, accessibility, PWA, and testing practices that go with them — with no UI frameworks layered on top. Each topic below is a short pointer to the best resource I've found on it, not a full explanation in itself.
 
 ## Contents
 
 - [HTML](#html)
 - [CSS](#css)
 - [JavaScript](#javascript)
+- [Web Components](#web-components)
 - [Media](#media)
 - [Performance](#performance)
 - [Accessibility](#accessibility)
+- [PWA](#pwa)
+- [Testing](#testing)
 - [My Resources](#my-resources)
 
 ## HTML
@@ -63,7 +66,7 @@ Content, padding, border, margin — and why `box-sizing: border-box` fixes most
 
 One-dimensional layout — a single row or column — for distributing and aligning items within a container.
 
-- [A Complete Guide to Flexbox (CSS-Tricks)](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+- [A Complete Guide to CSS Flexbox (CSS-Tricks)](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
 - [Flexbox (web.dev)](https://web.dev/learn/css/flexbox)
 
 ### Grid
@@ -77,7 +80,7 @@ Two-dimensional layout — rows and columns together — for page-level and comp
 
 Native CSS variables (`--my-color`) for values you reuse, and `@layer` for controlling which groups of rules win without fighting specificity.
 
-- [Using CSS custom properties (MDN)](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties)
+- [Using CSS custom properties (variables) (MDN)](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties)
 - [Cascade layers (MDN)](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Cascade_layers)
 - [Custom properties (web.dev)](https://web.dev/learn/css/custom-properties)
 
@@ -125,6 +128,31 @@ Handling things that don't finish immediately — fetch requests, timers — wit
 Splitting code across files with native `import`/`export` — no bundler required for the browser to understand it.
 
 - [JavaScript modules (MDN)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules)
+
+***
+
+## Web Components
+
+### Custom elements
+
+Defining your own HTML tags (`class MyWidget extends HTMLElement`) with their own behavior, registered with `customElements.define()`.
+
+- [Using custom elements (MDN)](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements)
+- [Custom Elements v1 - Reusable Web Components (web.dev)](https://web.dev/articles/custom-elements-v1)
+
+### Shadow DOM
+
+Attaching an encapsulated DOM subtree to an element, with its own scoped styles that don't leak in or out of the rest of the page.
+
+- [Using shadow DOM (MDN)](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_shadow_DOM)
+- [Shadow DOM v1 - Self-Contained Web Components (web.dev)](https://web.dev/articles/shadowdom-v1)
+
+### HTML templates & slots
+
+`<template>` for declaring inert, reusable markup that isn't rendered until cloned into the DOM, and `<slot>` for composing content passed into a custom element.
+
+- [`<template>` HTML content template element (MDN)](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/template)
+- [Using templates and slots (MDN)](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_templates_and_slots)
 
 ***
 
@@ -214,6 +242,63 @@ Meeting WCAG contrast ratios, and respecting `prefers-color-scheme`/`prefers-con
 Labels, descriptions, and error messages connected to their fields programmatically, not just visually.
 
 - [Forms (web.dev)](https://web.dev/learn/accessibility/forms)
+
+***
+
+## PWA
+
+### Web app manifest
+
+`manifest.json` — the name, icons, theme color, and display mode that let a browser treat a site as an installable app.
+
+- [Web application manifest (MDN)](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Manifest)
+- [Web app manifest (web.dev)](https://web.dev/learn/pwa/web-app-manifest)
+
+### Service workers & offline caching
+
+A script that sits between the page and the network, intercepting requests to serve cached responses — the basis of offline support.
+
+- [Service Worker API (MDN)](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API)
+- [Service workers (web.dev)](https://web.dev/learn/pwa/service-workers)
+- [Caching (web.dev)](https://web.dev/learn/pwa/caching)
+
+### Installability & app-like UX
+
+What makes a site eligible to be installed, and the `beforeinstallprompt` event for offering your own install UI.
+
+- [Installation (web.dev)](https://web.dev/learn/pwa/installation)
+- [`BeforeInstallPromptEvent` (MDN)](https://developer.mozilla.org/en-US/docs/Web/API/BeforeInstallPromptEvent)
+
+### Push notifications
+
+Re-engaging users outside the browser tab with the Push API and Notifications API.
+
+- [Push API (MDN)](https://developer.mozilla.org/en-US/docs/Web/API/Push_API)
+- [Notifications API (MDN)](https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API)
+
+***
+
+## Testing
+
+### Unit testing
+
+Fast, isolated tests for individual functions and modules, run without a browser.
+
+- [Vitest guide](https://vitest.dev/guide/)
+
+### End-to-end / browser testing
+
+Simulating real user flows in a real browser — clicking, typing, navigating — to catch what unit tests can't.
+
+- [Playwright docs](https://playwright.dev/docs/intro)
+- [Why Cypress? (Cypress docs)](https://docs.cypress.io/guides/overview/why-cypress)
+
+### Accessibility testing
+
+Automated checks that catch a subset of accessibility issues, worth running as part of a test suite — but no substitute for manual and assistive-tech testing.
+
+- [Automated accessibility testing (web.dev)](https://web.dev/learn/accessibility/test-automated)
+- [axe-core (GitHub)](https://github.com/dequelabs/axe-core)
 
 ***
 
