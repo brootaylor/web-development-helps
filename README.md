@@ -48,6 +48,14 @@ Native HTML can validate a lot of form input on its own — `required`, `pattern
 
 > [Kevin Powell](https://www.kevinpowell.co/) is worth a general mention here — a genuine expert on all things CSS, and a great resource beyond any single topic below.
 
+### CSS reference
+
+The full set of CSS rules and properties as browsers implement them, not tied to any one topic below.
+
+- [CSS Sky](https://blog.alena.rocks/en/artifacts/css-sky/) — a fantastic CSS reference, presented as an animated galaxy that's just as fun to explore as it is useful
+- [CSS reference (MDN)](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference)
+- [Learn CSS (web.dev)](https://web.dev/learn/css)
+
 ### Selectors & specificity
 
 Why one rule beats another when two selectors target the same element — the ID/class/type weighting system that decides it.
